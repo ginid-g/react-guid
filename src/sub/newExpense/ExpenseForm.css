@@ -1,0 +1,22 @@
+button {
+  padding: 0.5rem;
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+label {
+  display: block;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+input {
+  padding: 0.5rem;
+}
