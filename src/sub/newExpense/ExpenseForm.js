@@ -15,8 +15,9 @@ const ExpenseForm = (props) => {
     event.preventDefault();
     props.onSave({
       title: title,
-      date: date,
+      date: new Date(date),
       amount: amount,
+      id: Math.random() * 9999,
     });
 
     setTitle("");
