@@ -3,39 +3,30 @@ import Card from "../UI/Card";
 
 import ExpenseForm from "../newExpense/ExpenseForm";
 import Expense from "./Expense";
+import ExpenseFilter from "../expenseFilter/ExpenseFilter";
+import ExpenseChart from "./ExpenseChart";
 
-const initial_expneses = [
-  {
-    id: 1,
-    title: "Some title",
-    amount: 25.65,
-    date: new Date(),
-  },
-  {
-    id: 2,
-    title: "Some title2",
-    amount: 25.65,
-    date: new Date(),
-  },
-  {
-    id: 3,
-    title: "Some title3",
-    amount: 25.65,
-    date: new Date(),
-  },
-  {
-    id: 4,
-    title: "Some title4",
-    amount: 25.65,
-    date: new Date(),
-  },
-];
+const initial_expneses = [];
 
 function ExpensProject() {
   const [expenses, setExpenses] = useState(initial_expneses);
 
+  const [filterredExpenses, setFilterredExpenses] = useState(expenses);
+
   const addExpense = (expenseData) => {
     setExpenses((prev) => [...prev, expenseData]);
+    console.log(expenses);
+  };
+
+  const handleDateChange = (expensYear) => {
+    setFilterredExpenses(
+      expenses.filter(
+        (expens) => expens.date.getFullYear().toString() === expensYear
+      )
+    );
+
+    console.log("HH");
+    console.log(filterredExpenses);
   };
 
   return (
@@ -44,7 +35,16 @@ function ExpensProject() {
         <ExpenseForm onSave={addExpense}></ExpenseForm>
       </Card>
       <Card>
-        <Expense expenses={expenses} />
+        <ExpenseChart expens={filterredExpenses} />
+      </Card>
+      <Card>
+        <ExpenseFilter onDateChange={handleDateChange} />
+        {filterredExpenses && filterredExpenses.length ? (
+          <Expense expenses={filterredExpenses} />
+        ) : (
+          <div>No Data Available</div>
+        )}
+        <Expense expenses={filterredExpenses} />
       </Card>
     </>
   );
