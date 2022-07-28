@@ -29,12 +29,12 @@ const ExpenseForm = (props) => {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label for="title">Title</label>
+          <label htmlFor="title">Title</label>
           <input type="text" id="title" value={title} onChange={handleTitle} />
         </div>
 
         <div>
-          <label for="amount">Amount</label>
+          <label htmlFor="amount">Amount</label>
           <input
             type="number"
             id="amount"
@@ -44,7 +44,7 @@ const ExpenseForm = (props) => {
         </div>
 
         <div>
-          <label for="date">date</label>
+          <label htmlFor="date">date</label>
           <input type="date" id="date" value={date} onChange={handleDate} />
         </div>
 
