@@ -14,8 +14,7 @@ function ExpensProject() {
   const [filterredExpenses, setFilterredExpenses] = useState(expenses);
 
   const addExpense = (expenseData) => {
-    setExpenses((prev) => [...prev, expenseData]);
-    console.log(expenses);
+    setExpenses((prev) => [expenseData, ...prev]);
   };
 
   const handleDateChange = (expensYear) => {
@@ -24,9 +23,6 @@ function ExpensProject() {
         (expens) => expens.date.getFullYear().toString() === expensYear
       )
     );
-
-    console.log("HH");
-    console.log(filterredExpenses);
   };
 
   return (
@@ -44,7 +40,6 @@ function ExpensProject() {
         ) : (
           <div>No Data Available</div>
         )}
-        <Expense expenses={filterredExpenses} />
       </Card>
     </>
   );

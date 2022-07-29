@@ -1,11 +1,14 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
-import ExpensProject from "./sub/expense/ExpensProject";
+// import ExpensProject from "./sub/expense/ExpensProject";
+
+import Course from "./course/Course";
 
 function App() {
   return (
     <div className="App">
-      <ExpensProject></ExpensProject>
+      {/* <ExpensProject></ExpensProject> */}
+      <Course />
     </div>
   );
 }
