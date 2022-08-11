@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import CartProvider from "./store/CartProvider";
+
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
@@ -11,7 +13,7 @@ function Main() {
   const hideModalHandler = () => setShowModal(false);
 
   return (
-    <>
+    <CartProvider>
       {showModal && (
         <Cart onHide={hideModalHandler} onOrder={hideModalHandler} />
       )}
@@ -20,7 +22,7 @@ function Main() {
       <main>
         <Meals />
       </main>
-    </>
+    </CartProvider>
   );
 }
 
