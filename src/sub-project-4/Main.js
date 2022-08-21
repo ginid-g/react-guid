@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import MoviesList from "./components/MoviesList";
 import "./Main.css";
@@ -15,6 +15,10 @@ function Main() {
     setMovies(data.results);
     setIsLoading(false);
   }
+
+  useEffect(() => {
+    fetchMovieHandler();
+  }, []);
 
   return (
     <React.Fragment>
