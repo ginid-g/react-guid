@@ -5,7 +5,10 @@ import "./App.css";
 
 // import Sub2 from "./sub2/Sub2";
 
-import Main from "./sub-project-6/Main";
+import Main from "./sub-project-7/Main";
+
+import { Provider } from "react-redux";
+import store from "./sub-project-7/store";
 
 function App() {
   return (
@@ -13,7 +16,9 @@ function App() {
       {/* <ExpensProject></ExpensProject> */}
       {/* <Course /> */}
       {/* <Sub2 /> */}
-      <Main />
+      <Provider store={store}>
+        <Main />
+      </Provider>
     </div>
   );
 }
